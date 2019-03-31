@@ -55,3 +55,29 @@ public void leetSpeak(Scanner input, PrintStream output) {
         output.println(leetLine);
     }
 }
+
+/*
+ * Solution 2: 
+ * Or if you haven't learned about "StringBuilder", here is another wayout!
+ */
+      public static void leetSpeak(Scanner input, PrintStream output) {
+      while (input.hasNext()) {
+      Scanner line = new Scanner(input.nextLine());
+         while (line.hasNext()) {
+            String token = line.next();
+            if (token.endsWith("s")) {
+               token = token.substring(0,token.length()-1) + "Z";
+            }
+            token = token.replace('o', '0')
+                         .replace('l', '1')
+                         .replace('e', '3')
+                         .replace('a', '4')
+                         .replace('t', '7');
+            token = "(" + token + ")";
+            output.print(token + " ");
+            //System.out.print(token + " ");
+         }
+         output.println();
+         //System.out.println();
+      }
+   }
